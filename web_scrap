@@ -1,0 +1,11 @@
+import requests
+import bs4
+url=input("Enter the URL:")
+response=requests.get(url)
+
+filename="temp.html"
+obj=bs4.BeautifulSoup(response.text,"html.parser")
+formatted=obj.prettify()
+print(formatted)
+with open(filename,"w") as f:
+    f.write(formatted)
